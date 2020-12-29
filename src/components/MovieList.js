@@ -5,6 +5,9 @@ import _ from "lodash";
 import "./MovieItem.css";
 
 class MovieList extends React.Component {
+  componentDidMount() {
+    this.props.fetchMovies("Harry Potter");
+  }
   renderList() {
     const beenNominated = this.alreadyNominated();
 
