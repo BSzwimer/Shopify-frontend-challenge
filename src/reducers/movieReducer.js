@@ -1,6 +1,6 @@
 import { FETCH_MOVIES } from "../actions/types";
 
-export default (state = {}, action) => {
+const movieReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_MOVIES:
       return { ...state, ...action.payload };
@@ -8,3 +8,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default movieReducer;

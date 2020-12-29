@@ -21,7 +21,7 @@ const PopUp = (props) => {
   const onSubmit = () => {
     setOpen(false);
     props.nominations.map((nomination) => {
-      props.deleteNomination(nomination.imdbID);
+      return props.deleteNomination(nomination.imdbID);
     });
     alert.success("Shoppies Submitted!");
   };

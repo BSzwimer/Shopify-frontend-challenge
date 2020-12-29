@@ -1,7 +1,7 @@
 import { CREATE_NOMINATION, DELETE_NOMINATION } from "../actions/types";
 import _ from "lodash";
 
-export default (state = {}, action) => {
+const nominationReducer = (state = {}, action) => {
   switch (action.type) {
     case CREATE_NOMINATION:
       return { ...state, [action.payload.imdbID]: action.payload };
@@ -11,3 +11,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default nominationReducer;

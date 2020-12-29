@@ -4,7 +4,7 @@ import NominationList from "./NominationList";
 import React from "react";
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-
+import "./App.css";
 const options = {
   timeout: 5000,
   position: positions.MIDDLE,
@@ -17,10 +17,7 @@ const App = () => {
         <h1>The Shoppies</h1>
         <SearchBar />
         <div className="ui segment">
-          <div
-            className="ui two column very relaxed grid"
-            style={{ "text-align": "center" }}
-          >
+          <div className="ui two column very relaxed grid">
             <div className="column ">
               <MovieList />
             </div>

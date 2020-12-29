@@ -12,7 +12,7 @@ const NominationList = (props) => {
   });
 
   const headerDisplay = () => {
-    return props.nominations.length != 5
+    return props.nominations.length !== 5
       ? `Choose ${5 - props.nominations.length} movies to be nominated`
       : "Your Nominations";
   };
