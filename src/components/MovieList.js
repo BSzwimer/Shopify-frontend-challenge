@@ -16,6 +16,7 @@ class MovieList extends React.Component {
           <div className="ui image">
             <img
               className="ui centered image"
+              alt={`image poster for ${movie.Title}`}
               src={movie.Poster === "N/A" ? null : movie.Poster}
             />
           </div>
