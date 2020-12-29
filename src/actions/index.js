@@ -1,5 +1,10 @@
 import omdb from "../apis/omdb";
-import { FETCH_MOVIES, CREATE_NOMINATION, DELETE_NOMINATION } from "./types";
+import {
+  FETCH_MOVIES,
+  CREATE_NOMINATION,
+  DELETE_NOMINATION,
+  ERROR_MESSAGE,
+} from "./types";
 
 export const fetchMovies = (term) => async (dispatch) => {
   const { data } = await omdb.get("", {
@@ -9,6 +14,10 @@ export const fetchMovies = (term) => async (dispatch) => {
     },
   });
 
+  dispatch({
+    type: ERROR_MESSAGE,
+    payload: data.Search === undefined ? "No movie found" : "",
+  });
   dispatch({ type: FETCH_MOVIES, payload: data.Search });
 };
 

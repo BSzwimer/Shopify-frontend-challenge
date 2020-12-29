@@ -28,4 +28,8 @@ const SearchBar = (props) => {
   );
 };
 
-export default connect(null, { fetchMovies })(SearchBar);
+const mapStateToProps = (state) => {
+  return { errorMessage: state.searchError };
+};
+
+export default connect(mapStateToProps, { fetchMovies })(SearchBar);

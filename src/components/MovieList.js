@@ -56,10 +56,7 @@ class MovieList extends React.Component {
   }
 
   render() {
-    return (
-      //"ui relaxed divided animated list"
-      <div className="ui relaxed divided items">{this.renderList()}</div>
-    );
+    return <div className="ui relaxed divided items">{this.renderList()}</div>;
   }
 }
 
