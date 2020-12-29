@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { fetchMovies } from "../actions";
 import { connect } from "react-redux";
 
 const SearchBar = (props) => {
   const [term, setTerm] = useState("");
-
-  useEffect(() => {
-    props.fetchMovies("Harry Potter");
-  }, []);
 
   const onSubmit = (event) => {
     event.preventDefault();
