@@ -16,7 +16,7 @@ export const fetchMovies = (term) => async (dispatch) => {
 
   dispatch({
     type: ERROR_MESSAGE,
-    payload: data.Search === undefined ? "No movie found" : "",
+    payload: data.Search === undefined ? "No movie found" : null,
   });
   dispatch({ type: FETCH_MOVIES, payload: data.Search });
 };
