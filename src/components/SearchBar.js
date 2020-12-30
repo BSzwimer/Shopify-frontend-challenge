@@ -5,30 +5,39 @@ import _ from "lodash";
 
 const SearchBar = (props) => {
   const [term, setTerm] = useState("");
+  const [searchedTerm, setSearchedTerm] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
+    setSearchedTerm(term);
     props.fetchMovies(term.replace(/\s+/g, " ").trim().toLowerCase());
   };
 
   const errorRender = () => {
-    return _.isEmpty(props.errorMessage.error) ? null : (
-      <div className="ui error message">
-        <div className="header">No results found</div>
-        <p>
-          {`We didn't find any movies related to your last search. Please search a different movie`}
-        </p>
-      </div>
-    );
+    if (searchedTerm === term) {
+      return _.isEmpty(props.errorMessage.error) ? null : (
+        <div className="ui error message">
+          <div className="header">No results found</div>
+          <p>
+            {`We didn't find any movies searching for ${searchedTerm}. Please search a different movie`}
+          </p>
+        </div>
+      );
+    }
+    return null;
   };
+
+  const errorClassName = () => {
+    if (searchedTerm === term) {
+      return `field ${_.isEmpty(props.errorMessage.error) ? null : "error"}`;
+    }
+    return "field";
+  };
+
   return (
     <div className="search-bar ui segment">
       <form className="ui form error" onSubmit={onSubmit}>
-        <div
-          className={`field ${
-            _.isEmpty(props.errorMessage.error) ? null : "error"
-          }`}
-        >
+        <div className={errorClassName()}>
           <label> Search For a Movie</label>
           <input
             type="text"
