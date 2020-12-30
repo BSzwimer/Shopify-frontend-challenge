@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { fetchMovies } from "../actions";
 import { connect } from "react-redux";
 import _ from "lodash";
+
 const SearchBar = (props) => {
   const [term, setTerm] = useState("");
 
@@ -15,7 +16,7 @@ const SearchBar = (props) => {
       <div className="ui error message">
         <div className="header">No results found</div>
         <p>
-          {`We didn't find any movies by the name ${term} please search a different movie`}
+          {`We didn't find any movies related to your last search. Please search a different movie`}
         </p>
       </div>
     );
