@@ -11,7 +11,7 @@ const NominationItem = (props) => {
           <p>{props.nomination.Year}</p>
         </div>
         <button
-          className="ui right floated primary button"
+          className="ui right floated negative button"
           onClick={() => props.deleteNomination(props.nomination.imdbID)}
         >
           Remove
