@@ -39,13 +39,17 @@ const SearchBar = (props) => {
       <form className="ui form error" onSubmit={onSubmit}>
         <div className={errorClassName()}>
           <label> Search For a Movie</label>
-          <input
-            type="text"
-            value={term}
-            onChange={(e) => {
-              setTerm(e.target.value);
-            }}
-          />
+          <div className="ui icon input">
+            <input
+              type="text"
+              value={term}
+              onChange={(e) => {
+                setTerm(e.target.value);
+              }}
+              placeholder="Search..."
+            />
+            <i className="search icon"></i>
+          </div>
         </div>
         {errorRender()}
       </form>
